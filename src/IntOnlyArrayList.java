@@ -6,7 +6,7 @@ public class IntOnlyArrayList
      * Private empty arrays
      */
     private int[] listOfNumbers = new int [0];
-    private int[] listOfNumber2 = new int [0];
+    private int[] listOfNumbers2 = new int [0];
 
     /**
      * Default constructer
@@ -23,14 +23,15 @@ public class IntOnlyArrayList
      */
     public int[] get(int index)
     {
-        listOfNumber2 = new int [listOfNumbers.length + 1];
+        listOfNumbers2 = new int [listOfNumbers.length + 1];
+
         for(int i = 0; i < listOfNumbers.length; i++)
         {
-            listOfNumber2[i] = listOfNumbers[i];
+            listOfNumbers2[i] = listOfNumbers[i];
         }
-        listOfNumber2[listOfNumbers.length] = index;
+        listOfNumbers2[listOfNumbers.length] = index;
 
-        listOfNumbers = listOfNumber2;
+        listOfNumbers = listOfNumbers2;
         return listOfNumbers;
     }
 
@@ -42,27 +43,27 @@ public class IntOnlyArrayList
      */
     public void add(int value)
     {
-        listOfNumber2 = new int[listOfNumbers.length + 1];
+        listOfNumbers2 = new int[listOfNumbers.length + 1];
         for(int i = 0; i < listOfNumbers.length; i++)
         {
-            listOfNumber2[i] = listOfNumbers[i];
+            listOfNumbers2[i] = listOfNumbers[i];
         }
-        listOfNumber2[listOfNumber2.length - 1] = value;
+        listOfNumbers2[listOfNumbers2.length - 1] = value;
 
-        listOfNumbers = listOfNumber2;
+        listOfNumbers = listOfNumbers2;
     }
 
     /**
      * Public remove method that removes a specific index from the array.
      * You need to make a new array that do not have that specific index and
-     * copy the old array with elements + the new element to the new array.
-     * It needs to be and try-catch around if there will be asked to remove an index
-     * that do not exist in the old array
+     * copy the old array with elements - the element that should be removed to the new array.
+     * There needs to be a try-catch around if there would be asked to remove an index that do
+     * not exist in the old array
      * @param index
      */
     public void remove(int index)
     {
-        listOfNumber2 = new int[listOfNumbers.length - 1];
+        listOfNumbers2 = new int[listOfNumbers.length - 1];
         int newIndex = 0;
 
         try
@@ -71,16 +72,15 @@ public class IntOnlyArrayList
             {
                 if (index != i)
                 {
-                    listOfNumber2[newIndex] = listOfNumbers[i];
+                    listOfNumbers2[newIndex] = listOfNumbers[i];
                     newIndex++;
                 }
-
             }
-            listOfNumbers = listOfNumber2;
+            listOfNumbers = listOfNumbers2;
         }
         catch (Exception e)
         {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -89,7 +89,6 @@ public class IntOnlyArrayList
      * https://www.geeksforgeeks.org/difference-between-length-of-array-and-size-of-arraylist-in-java/
      * @return listOfNumbers.length
      */
-
     public int size()
     {
         return listOfNumbers.length;
