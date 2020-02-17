@@ -25,8 +25,7 @@ public class ModifyArrays
 
     public void SeeSizeListArray()
     {
-        intOnlyArrayList.size();
-        System.out.println("What size is the array? " + intOnlyArrayList.toString());
+        System.out.println("What size is the array? " + intOnlyArrayList.size());
     }
 
 }
